@@ -10,11 +10,12 @@ type FormInputProps = {
   placeholder: string;
   defaultValue?: string;
   required? : boolean;
+  inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
 };
 
 const FormInput = (props: FormInputProps) => {
   //console.log(props);
-  const { type, name, label, placeholder, defaultValue ,required } = props;
+  const { type, name, label, placeholder, defaultValue ,required ,inputProps} = props;
 
   return (
     <div className="space-y-2 mb-4">
@@ -32,6 +33,7 @@ const FormInput = (props: FormInputProps) => {
             placeholder={placeholder}
             defaultValue={defaultValue}
             required={required}
+            {...inputProps}
             className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
         />
     </div>
